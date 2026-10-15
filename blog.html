@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+
 <main>
   <section class="page-intro wrap">
     <div class="eyebrow">Notes &amp; Reflections</div>
@@ -11,16 +12,27 @@ layout: default
     <div class="post-grid">
       {% for post in site.posts %}
         <article class="post-card">
-          <div class="post-date">{{ post.date | date: "%B %-d, %Y" }}</div>
+          <div class="post-date">
+            {{ post.date | date: "%B %-d, %Y" }}
+          </div>
+
           <h2>{{ post.title | escape }}</h2>
+
           {% if post.description %}
             <p>{{ post.description | escape }}</p>
           {% else %}
-            <p>{{ post.excerpt | strip_html | truncatewords: 28 }}</p>
+            <p>
+              {{ post.excerpt | strip_html | truncatewords: 28 }}
+            </p>
           {% endif %}
-          <a href="{{ post.url | relative_url }}">Read More ↗</a>
+
+          <a href="{{ post.url | relative_url }}">
+            Read More ↗
+          </a>
         </article>
       {% endfor %}
     </div>
+
+    <p class="empty-message">More coming soon</p>
   </section>
 </main>
