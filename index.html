@@ -98,7 +98,7 @@
     }
 
     .lead {
-      max-width: 610px;
+      max-width: 650px;
       margin: 0 auto;
       color: var(--muted);
       font-size: 18px;
@@ -190,6 +190,22 @@
       background: var(--accent);
     }
 
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .skill {
+      background: #f2edf0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-size: 14px;
+      color: var(--ink);
+    }
+
     .about {
       background: #f2edf0;
       padding: 65px 0;
@@ -198,6 +214,22 @@
     .about p {
       max-width: 720px;
       color: #57515a;
+    }
+
+    .contact {
+      padding: 65px 0 90px;
+    }
+
+    .contact p {
+      color: var(--muted);
+      max-width: 650px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 25px;
     }
 
     footer {
@@ -237,6 +269,7 @@
         <div class="navlinks">
           <a href="#projects">Projects</a>
           <a href="#about">About</a>
+          <a href="#contact">Contact</a>
         </div>
       </nav>
     </div>
@@ -244,17 +277,23 @@
 
   <main>
 
+    <!-- HOMEPAGE INTRODUCTION -->
+
     <section class="hero wrap">
+
       <div class="eyebrow">Website Design Portfolio</div>
 
       <h1>Madison Ellis</h1>
 
       <p class="lead">
-        A collection of websites I've designed, with a focus
-        on thoughtful layouts, clear navigation, and engaging
-        digital experiences.
+        A portfolio of website design projects created for
+        small businesses, with experience in digital marketing
+        and branding.
       </p>
+
     </section>
+
+    <!-- WEBSITE PROJECTS -->
 
     <section id="projects" class="section wrap">
 
@@ -263,8 +302,8 @@
       <h2>Website Projects</h2>
 
       <p class="section-intro">
-        Explore my projects below. Archived demonstrations
-        preserve the look and navigation of the original websites.
+        Explore interactive archives of completed website projects,
+        preserving their original design and navigation.
       </p>
 
       <div class="projects">
@@ -286,7 +325,7 @@
             <h3>Dolce Dance Studio</h3>
 
             <p>
-              Explore a recorded, clickable version of the
+              Explore an interactive archive of the
               Dolce Dance Studio website.
             </p>
 
@@ -314,9 +353,8 @@
             <h3>Colton's Mobile Auto Detailing</h3>
 
             <p>
-              Explore a recorded, clickable version of the
-              Colton's Mobile Auto Detailing website,
-              featuring its original design and navigation.
+              Explore an interactive archive of the
+              Colton's Mobile Auto Detailing website.
             </p>
 
             <a class="action" href="./cmad.html">
@@ -329,29 +367,93 @@
       </div>
     </section>
 
+    <!-- SKILLS AND TOOLS -->
+
+    <section class="section wrap">
+
+      <div class="eyebrow">What Goes Into the Work</div>
+
+      <h2>Skills &amp; Tools</h2>
+
+      <p class="section-intro">
+        Experience across website design, digital content,
+        and small business marketing.
+      </p>
+
+      <div class="skills-list">
+        <span class="skill">Squarespace</span>
+        <span class="skill">Website Design</span>
+        <span class="skill">Canva</span>
+        <span class="skill">Basic SEO</span>
+        <span class="skill">Digital Marketing</span>
+        <span class="skill">Social Media Content</span>
+        <span class="skill">Meta Business Suite</span>
+        <span class="skill">Branding</span>
+      </div>
+
+    </section>
+
+    <!-- ABOUT -->
+
     <section id="about" class="about">
       <div class="wrap">
 
         <div class="eyebrow">About</div>
 
-        <h2>Designing for the web</h2>
+        <h2>Experience &amp; Background</h2>
 
         <p>
-          I'm Madison Ellis. This portfolio highlights website
-          projects I've worked on, from visual presentation
-          to page organization and navigation. Each project
-          is an opportunity to create a welcoming,
-          easy-to-explore online experience.
+          Freelance web designer with experience creating
+          and maintaining websites for small businesses
+          since 2022. Work includes Squarespace website
+          layouts, page organization, contact form integration,
+          basic SEO, and digital content creation.
+        </p>
+
+        <p>
+          Additional experience includes social media graphics,
+          branding, and content scheduling for Instagram
+          and Facebook.
         </p>
 
       </div>
+    </section>
+
+    <!-- CONTACT -->
+
+    <section id="contact" class="contact wrap">
+
+      <div class="eyebrow">Get in Touch</div>
+
+      <h2>Contact</h2>
+
+      <p>
+        For website design inquiries, collaborations,
+        or professional opportunities, get in touch below.
+      </p>
+
+      <div class="contact-links">
+
+        <!-- Replace these placeholders with your contact details -->
+
+        <a class="action" href="mailto:YOUR_EMAIL@example.com">
+          Email
+        </a>
+
+        <a class="action" href="tel:YOUR_PHONE_NUMBER">
+          Phone
+        </a>
+
+      </div>
+
     </section>
 
   </main>
 
   <footer>
     <div class="wrap">
-      © <span id="year">2026</span> Madison Ellis · Website Design Portfolio
+      © <span id="year">2026</span>
+      Madison Ellis · Website Design Portfolio
     </div>
   </footer>
 
