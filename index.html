@@ -1,6 +1,7 @@
 
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -117,7 +118,34 @@
       font-size: 18px;
     }
 
-    /* SPOTIFY SECTION */
+    /* DELICATE OUTLINE ICONS */
+
+    .outline-icon {
+      width: 28px;
+      height: 28px;
+      fill: none;
+      stroke: var(--accent);
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+
+    .heading-with-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .heading-with-icon .outline-icon {
+      width: 27px;
+      height: 27px;
+    }
+
+    /* SPOTIFY */
 
     .music-section {
       padding-top: 0;
@@ -274,6 +302,53 @@
       color: #57515a;
     }
 
+    /* BEYOND THE PORTFOLIO */
+
+    .beyond-section {
+      padding: 65px 24px;
+    }
+
+    .beyond-card {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 42px 24px;
+      background: #f5f0f3;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      text-align: center;
+    }
+
+    .beyond-card h2 {
+      font-size: 34px;
+      margin: 14px 0 10px;
+    }
+
+    .beyond-card p {
+      color: var(--muted);
+      font-size: 15px;
+      margin: 0 auto 20px;
+    }
+
+    .instagram-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: var(--accent);
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .instagram-link:hover {
+      text-decoration: underline;
+    }
+
+    .instagram-link .outline-icon {
+      width: 19px;
+      height: 19px;
+    }
+
     /* CONTACT */
 
     .contact {
@@ -392,6 +467,15 @@
         max-width: 100%;
       }
 
+      .heading-with-icon {
+        gap: 7px;
+      }
+
+      .heading-with-icon .outline-icon {
+        width: 23px;
+        height: 23px;
+      }
+
       /* MOBILE PROJECTS */
 
       .section {
@@ -461,6 +545,25 @@
         line-height: 1.75;
       }
 
+      /* MOBILE BEYOND */
+
+      .beyond-section {
+        padding: 40px 20px;
+      }
+
+      .beyond-card {
+        padding: 32px 18px;
+        border-radius: 14px;
+      }
+
+      .beyond-card h2 {
+        font-size: 26px;
+      }
+
+      .beyond-card p {
+        font-size: 14px;
+      }
+
       /* MOBILE CONTACT */
 
       .contact {
@@ -497,7 +600,7 @@
 
   <main>
 
-    <!-- HOMEPAGE -->
+    <!-- INTRODUCTION -->
 
     <section class="hero wrap">
 
@@ -523,7 +626,19 @@
         A Little Background Music
       </div>
 
-      <h2>Listen While You Browse ♡</h2>
+      <h2 class="heading-with-icon">
+        Listen While You Browse
+
+        <!-- OUTLINE LEAF -->
+        <svg
+          class="outline-icon"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M20 4c-9 0-15 5-15 12a4 4 0 0 0 4 4c7 0 12-6 11-16Z"/>
+          <path d="M4 21c3-6 7-10 13-13"/>
+        </svg>
+      </h2>
 
       <p>
         Feel free to put on a playlist while exploring
@@ -531,7 +646,6 @@
       </p>
 
       <div class="spotify-player">
-
         <iframe
           title="Madison's Spotify Playlist"
           src="https://open.spotify.com/embed/playlist/4Z6i4pJHjUTbzzpEuvFSCn"
@@ -540,7 +654,6 @@
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           loading="lazy">
         </iframe>
-
       </div>
 
     </section>
@@ -583,7 +696,6 @@
             </a>
 
           </div>
-
         </article>
 
         <!-- CMAD -->
@@ -612,11 +724,9 @@
             </a>
 
           </div>
-
         </article>
 
       </div>
-
     </section>
 
     <!-- SKILLS -->
@@ -672,6 +782,69 @@
 
     </section>
 
+    <!-- BEYOND THE PORTFOLIO -->
+
+    <section class="beyond-section">
+
+      <div class="beyond-card">
+
+        <div class="eyebrow">
+          A Little More About Me
+        </div>
+
+        <h2 class="heading-with-icon">
+          Beyond the Portfolio
+
+          <!-- OUTLINE CAT -->
+          <svg
+            class="outline-icon"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path d="M5 9 4 3l5 3a9 9 0 0 1 6 0l5-3-1 6"/>
+            <path d="M5 9a8 8 0 0 0-1 4c0 5 4 8 8 8s8-3 8-8a8 8 0 0 0-1-4"/>
+            <path d="M9 13h.01M15 13h.01"/>
+            <path d="m11 16 1 1 1-1"/>
+            <path d="M3 15h5M16 15h5M3 18l5-1M16 17l5 1"/>
+          </svg>
+        </h2>
+
+        <p>
+          A little glimpse into life outside of web design.
+        </p>
+
+        <!-- INSTAGRAM LINK -->
+
+        <a
+          class="instagram-link"
+          href="https://www.instagram.com/maddy.ellis04/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <!-- OUTLINE INSTAGRAM ICON -->
+          <svg
+            class="outline-icon"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <rect
+              x="3"
+              y="3"
+              width="18"
+              height="18"
+              rx="5"
+            />
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M17.5 6.5h.01"/>
+          </svg>
+
+          Instagram ↗
+        </a>
+
+      </div>
+
+    </section>
+
     <!-- CONTACT -->
 
     <section id="contact" class="contact wrap">
@@ -688,11 +861,11 @@
       </p>
 
       <p class="contact-detail">
-        <strong>Email:</strong> YOUR_EMAIL@example.com
+        <strong>Email:</strong> mads.ellis04@gmail.com
       </p>
 
       <p class="contact-detail">
-        <strong>Phone:</strong> YOUR_PHONE_NUMBER
+        <strong>Phone:</strong> (559) 515-1104
       </p>
 
     </section>
