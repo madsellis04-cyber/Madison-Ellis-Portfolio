@@ -32,6 +32,7 @@
       color: var(--ink);
       font-family: Arial, Helvetica, sans-serif;
       line-height: 1.6;
+      overflow-wrap: break-word;
     }
 
     .wrap {
@@ -108,12 +109,6 @@
       padding: 55px 0 90px;
     }
 
-    .section-intro {
-      max-width: 670px;
-      color: var(--muted);
-      margin-bottom: 36px;
-    }
-
     .projects {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -127,6 +122,7 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
+      min-width: 0;
     }
 
     .visual {
@@ -166,6 +162,7 @@
       font-weight: 400;
       font-size: 28px;
       margin: 12px 0 6px;
+      line-height: 1.25;
     }
 
     .content p {
@@ -225,11 +222,8 @@
       max-width: 650px;
     }
 
-    .contact-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 25px;
+    .contact-detail {
+      overflow-wrap: anywhere;
     }
 
     footer {
@@ -239,21 +233,149 @@
       border-top: 1px solid var(--line);
     }
 
-    @media (max-width: 680px) {
+    /* TABLETS */
+
+    @media (max-width: 800px) {
       .hero {
-        padding: 75px 0;
+        padding: 75px 0 65px;
       }
 
       .projects {
         grid-template-columns: 1fr;
       }
 
+      .visual {
+        height: 200px;
+      }
+
+      .section {
+        padding: 45px 0 65px;
+      }
+    }
+
+    /* PHONES */
+
+    @media (max-width: 600px) {
+      .wrap {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      nav {
+        min-height: 0;
+        padding: 18px 0;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .brand {
+        font-size: 17px;
+      }
+
       .navlinks {
-        gap: 14px;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px 22px;
+        font-size: 13px;
+      }
+
+      .hero {
+        padding-top: 58px;
+        padding-bottom: 55px;
+      }
+
+      .eyebrow {
+        font-size: 10px;
+        letter-spacing: .15em;
+      }
+
+      h1 {
+        font-size: clamp(38px, 11vw, 54px);
+        margin: 16px 0;
+      }
+
+      h2 {
+        font-size: clamp(30px, 8vw, 38px);
+        margin: 12px 0 22px;
+      }
+
+      .lead {
+        font-size: 15px;
+        line-height: 1.7;
+        max-width: 340px;
+      }
+
+      .section {
+        padding-top: 38px;
+        padding-bottom: 55px;
+      }
+
+      .projects {
+        gap: 18px;
+      }
+
+      .project {
+        border-radius: 14px;
       }
 
       .visual {
-        height: 185px;
+        height: 150px;
+        font-size: 38px;
+      }
+
+      .content {
+        padding: 22px;
+      }
+
+      .tag {
+        font-size: 10px;
+        letter-spacing: .1em;
+      }
+
+      h3 {
+        font-size: 25px;
+        margin: 10px 0;
+      }
+
+      .content p {
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 18px;
+      }
+
+      .action {
+        font-size: 13px;
+        padding: 11px 15px;
+      }
+
+      .skills-list {
+        gap: 9px;
+        margin-top: 18px;
+      }
+
+      .skill {
+        font-size: 12px;
+        padding: 8px 12px;
+      }
+
+      .about {
+        padding: 45px 0;
+      }
+
+      .about p,
+      .contact p {
+        font-size: 14px;
+        line-height: 1.75;
+      }
+
+      .contact {
+        padding: 45px 20px 60px;
+      }
+
+      footer {
+        font-size: 12px;
+        padding: 22px 0;
       }
     }
   </style>
@@ -277,21 +399,25 @@
 
   <main>
 
-    <!-- HOMEPAGE INTRODUCTION -->
+    <!-- HOMEPAGE -->
 
     <section class="hero wrap">
 
-      <div class="eyebrow">Website Design Portfolio</div>
+      <div class="eyebrow">
+        Website Design Portfolio
+      </div>
 
       <h1>Madison Ellis</h1>
 
       <p class="lead">
-        Welcome! I invite you to take a look around and explore some of the websites and creative projects I've worked on.
+        Welcome! I invite you to take a look around
+        and explore some of the websites and creative
+        projects I've worked on.
       </p>
 
     </section>
 
-    <!-- WEBSITE PROJECTS -->
+    <!-- PROJECTS -->
 
     <section id="projects" class="section wrap">
 
@@ -299,10 +425,9 @@
 
       <h2>Website Projects</h2>
 
-
       <div class="projects">
 
-        <!-- DOLCE DANCE STUDIO -->
+        <!-- DOLCE -->
 
         <article class="project">
 
@@ -330,7 +455,7 @@
           </div>
         </article>
 
-        <!-- COLTON'S MOBILE AUTO DETAILING -->
+        <!-- CMAD -->
 
         <article class="project">
 
@@ -361,14 +486,15 @@
       </div>
     </section>
 
-    <!-- SKILLS AND TOOLS -->
+    <!-- SKILLS -->
 
     <section class="section wrap">
 
-      <div class="eyebrow">What Goes Into the Work</div>
+      <div class="eyebrow">
+        What Goes Into the Work
+      </div>
 
       <h2>Skills &amp; Tools</h2>
-
 
       <div class="skills-list">
         <span class="skill">Squarespace</span>
@@ -409,27 +535,42 @@
       </div>
     </section>
 
-  
-<!-- CONTACT -->
+    <!-- CONTACT -->
 
-<section id="contact" class="contact wrap">
+    <section id="contact" class="contact wrap">
 
-  <div class="eyebrow">Get in Touch</div>
+      <div class="eyebrow">Get in Touch</div>
 
-  <h2>Contact</h2>
+      <h2>Contact</h2>
 
-  <p>
-    For website design inquiries, collaborations,
-    or professional opportunities, feel free to reach out.
-  </p>
+      <p>
+        For website design inquiries, collaborations,
+        or professional opportunities, feel free to reach out.
+      </p>
 
-  <p>
-    <strong>Email:</strong> YOUR_EMAIL@example.com
-  </p>
+      <p class="contact-detail">
+        <strong>Email:</strong> Mads.ellis04@gmail.com
+      </p>
 
-  <p>
-    <strong>Phone:</strong> YOUR_PHONE_NUMBER
-  </p>
+      <p class="contact-detail">
+        <strong>Phone:</strong> (559)515-1104
+      </p>
 
-</section>
+    </section>
 
+  </main>
+
+  <footer>
+    <div class="wrap">
+      © <span id="year">2026</span>
+      Madison Ellis · Website Design Portfolio
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
