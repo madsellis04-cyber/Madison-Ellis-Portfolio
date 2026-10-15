@@ -1,32 +1,364 @@
+
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Madison Ellis — Website Design Portfolio">
+
   <title>Madison Ellis | Website Design Portfolio</title>
+
   <style>
-    :root{color-scheme:light;--ink:#28262a;--muted:#66616b;--accent:#775d77;--paper:#fbf9f7;--line:#e7e0e4}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.6}
-    .wrap{max-width:1080px;margin:auto;padding:0 24px}header{border-bottom:1px solid var(--line);background:#fff}nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px}nav a{text-decoration:none;color:var(--ink)}.brand{font-weight:700;letter-spacing:.02em}.navlinks{display:flex;gap:24px;font-size:14px}
-    .hero{padding:100px 0 95px;text-align:center}.eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:bold}h1{font-family:Georgia,serif;font-weight:400;font-size:clamp(48px,8vw,90px);line-height:1.08;margin:20px 0}h2{font-family:Georgia,serif;font-size:clamp(32px,4vw,48px);font-weight:400;line-height:1.2}.lead{max-width:610px;margin:0 auto;color:var(--muted);font-size:18px}.section{padding:55px 0 90px}.section-intro{max-width:670px;color:var(--muted);margin-bottom:36px}
-    .projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}.project{border:1px solid var(--line);border-radius:16px;background:#fff;overflow:hidden;display:flex;flex-direction:column}.visual{height:230px;display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,#f0e5e9,#d5bdcc);font-family:Georgia,serif;font-size:46px;letter-spacing:.03em;color:#60485c}.visual.cmad{background:linear-gradient(145deg,#e7eef4,#cad9e6);color:#426887}.content{padding:28px;flex:1;display:flex;flex-direction:column}.tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}h3{font-family:Georgia,serif;font-weight:400;font-size:28px;margin:12px 0 6px}.content p{color:var(--muted);margin:0 0 22px}.action{margin-top:auto;display:inline-block;align-self:flex-start;border-radius:6px;padding:12px 20px;background:var(--ink);color:white;text-decoration:none;font-size:14px;font-weight:700}.soon{background:#f1eef0;color:#777079;cursor:default}.about{background:#f2edf0;padding:65px 0}.about p{max-width:720px;color:#57515a}footer{padding:28px 0;color:#716a71;font-size:13px;border-top:1px solid var(--line)}
-    @media(max-width:680px){.hero{padding:75px 0}.projects{grid-template-columns:1fr}.navlinks{gap:14px}.visual{height:185px}}
+    :root {
+      color-scheme: light;
+      --ink: #28262a;
+      --muted: #66616b;
+      --accent: #775d77;
+      --paper: #fbf9f7;
+      --line: #e7e0e4;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    .wrap {
+      max-width: 1080px;
+      margin: auto;
+      padding: 0 24px;
+    }
+
+    header {
+      border-bottom: 1px solid var(--line);
+      background: #fff;
+    }
+
+    nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--ink);
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: .02em;
+    }
+
+    .navlinks {
+      display: flex;
+      gap: 24px;
+      font-size: 14px;
+    }
+
+    .hero {
+      padding: 100px 0 95px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    h1 {
+      font-family: Georgia, serif;
+      font-weight: 400;
+      font-size: clamp(48px, 8vw, 90px);
+      line-height: 1.08;
+      margin: 20px 0;
+    }
+
+    h2 {
+      font-family: Georgia, serif;
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 400;
+      line-height: 1.2;
+    }
+
+    .lead {
+      max-width: 610px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .section {
+      padding: 55px 0 90px;
+    }
+
+    .section-intro {
+      max-width: 670px;
+      color: var(--muted);
+      margin-bottom: 36px;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .project {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #fff;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .visual {
+      height: 230px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(145deg, #f0e5e9, #d5bdcc);
+      font-family: Georgia, serif;
+      font-size: 46px;
+      letter-spacing: .03em;
+      color: #60485c;
+    }
+
+    .visual.cmad {
+      background: linear-gradient(145deg, #e7eef4, #cad9e6);
+      color: #426887;
+    }
+
+    .content {
+      padding: 28px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tag {
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    h3 {
+      font-family: Georgia, serif;
+      font-weight: 400;
+      font-size: 28px;
+      margin: 12px 0 6px;
+    }
+
+    .content p {
+      color: var(--muted);
+      margin: 0 0 22px;
+    }
+
+    .action {
+      margin-top: auto;
+      display: inline-block;
+      align-self: flex-start;
+      border-radius: 6px;
+      padding: 12px 20px;
+      background: var(--ink);
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .action:hover {
+      background: var(--accent);
+    }
+
+    .about {
+      background: #f2edf0;
+      padding: 65px 0;
+    }
+
+    .about p {
+      max-width: 720px;
+      color: #57515a;
+    }
+
+    footer {
+      padding: 28px 0;
+      color: #716a71;
+      font-size: 13px;
+      border-top: 1px solid var(--line);
+    }
+
+    @media (max-width: 680px) {
+      .hero {
+        padding: 75px 0;
+      }
+
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      .navlinks {
+        gap: 14px;
+      }
+
+      .visual {
+        height: 185px;
+      }
+    }
   </style>
 </head>
+
 <body>
-  <header><div class="wrap"><nav><a class="brand" href="./">Madison Ellis</a><div class="navlinks"><a href="#projects">Projects</a><a href="#about">About</a></div></nav></div></header>
+
+  <header>
+    <div class="wrap">
+      <nav>
+        <a class="brand" href="./">Madison Ellis</a>
+
+        <div class="navlinks">
+          <a href="#projects">Projects</a>
+          <a href="#about">About</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
   <main>
-    <section class="hero wrap"><div class="eyebrow">Website Design Portfolio</div><h1>Madison Ellis</h1><p class="lead">A collection of websites I've designed, with a focus on thoughtful layouts, clear navigation, and engaging digital experiences.</p></section>
-    <section id="projects" class="section wrap"><div class="eyebrow">Selected Work</div><h2>Website Projects</h2><p class="section-intro">Explore my projects below. Archived demonstrations preserve the look and navigation of the original websites.</p>
+
+    <section class="hero wrap">
+      <div class="eyebrow">Website Design Portfolio</div>
+
+      <h1>Madison Ellis</h1>
+
+      <p class="lead">
+        A collection of websites I've designed, with a focus
+        on thoughtful layouts, clear navigation, and engaging
+        digital experiences.
+      </p>
+    </section>
+
+    <section id="projects" class="section wrap">
+
+      <div class="eyebrow">Selected Work</div>
+
+      <h2>Website Projects</h2>
+
+      <p class="section-intro">
+        Explore my projects below. Archived demonstrations
+        preserve the look and navigation of the original websites.
+      </p>
+
       <div class="projects">
-        <article class="project"><div class="visual" aria-hidden="true">Dolce</div><div class="content"><div class="tag">Interactive website archive</div><h3>Dolce Dance Studio</h3><p>Explore a recorded, clickable version of the Dolce Dance Studio website.</p><a class="action" href="dolce.html">Explore Dolce Website →</a></div></article>
-        <article class="project"><div class="visual cmad" aria-hidden="true">CMAD</div><div class="content"><div class="tag">Website design project</div><h3>Colton's Mobile Auto Detailing</h3><p>A mobile auto detailing website project. A portfolio-safe interactive preview will be added here soon.</p><span class="action soon">Preview Coming Soon</span></div></article>
+
+        <!-- DOLCE DANCE STUDIO -->
+
+        <article class="project">
+
+          <div class="visual" aria-hidden="true">
+            Dolce
+          </div>
+
+          <div class="content">
+
+            <div class="tag">
+              Interactive Website Archive
+            </div>
+
+            <h3>Dolce Dance Studio</h3>
+
+            <p>
+              Explore a recorded, clickable version of the
+              Dolce Dance Studio website.
+            </p>
+
+            <a class="action" href="./dolce.html">
+              Explore Dolce Website →
+            </a>
+
+          </div>
+        </article>
+
+        <!-- COLTON'S MOBILE AUTO DETAILING -->
+
+        <article class="project">
+
+          <div class="visual cmad" aria-hidden="true">
+            CMAD
+          </div>
+
+          <div class="content">
+
+            <div class="tag">
+              Interactive Website Archive
+            </div>
+
+            <h3>Colton's Mobile Auto Detailing</h3>
+
+            <p>
+              Explore a recorded, clickable version of the
+              Colton's Mobile Auto Detailing website,
+              featuring its original design and navigation.
+            </p>
+
+            <a class="action" href="./cmad.html">
+              Explore CMAD Website →
+            </a>
+
+          </div>
+        </article>
+
       </div>
     </section>
-    <section id="about" class="about"><div class="wrap"><div class="eyebrow">About</div><h2>Designing for the web</h2><p>I'm Madison Ellis. This portfolio highlights website projects I've worked on, from visual presentation to page organization and navigation. Each project is an opportunity to create a welcoming, easy-to-explore online experience.</p></div></section>
+
+    <section id="about" class="about">
+      <div class="wrap">
+
+        <div class="eyebrow">About</div>
+
+        <h2>Designing for the web</h2>
+
+        <p>
+          I'm Madison Ellis. This portfolio highlights website
+          projects I've worked on, from visual presentation
+          to page organization and navigation. Each project
+          is an opportunity to create a welcoming,
+          easy-to-explore online experience.
+        </p>
+
+      </div>
+    </section>
+
   </main>
-  <footer><div class="wrap">© <span id="year">2026</span> Madison Ellis · Website Design Portfolio</div></footer>
-  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+
+  <footer>
+    <div class="wrap">
+      © <span id="year">2026</span> Madison Ellis · Website Design Portfolio
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent =
+      new Date().getFullYear();
+  </script>
+
 </body>
 </html>
