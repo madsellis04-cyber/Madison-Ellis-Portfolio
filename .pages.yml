@@ -1,0 +1,51 @@
+media:
+  - name: blog_images
+    label: Blog Images
+    input: assets/blog-images
+    output: /Madison-Ellis-Portfolio/assets/blog-images
+    rename: safe
+    extensions: [jpg, jpeg, png, webp, gif]
+  - name: photography
+    label: Photography — Upload Photos Here
+    input: assets/photography
+    output: /Madison-Ellis-Portfolio/assets/photography
+    rename: safe
+    extensions: [jpg, jpeg, png, webp, gif]
+content:
+  - name: posts
+    label: Blog Posts
+    type: collection
+    path: _posts
+    format: yaml-frontmatter
+    filename: "{year}-{month}-{day}-{title}.md"
+    view:
+      fields: [title, date]
+      primary: title
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: date
+        label: Date
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+      - name: layout
+        type: string
+        hidden: true
+        default: post
+      - name: description
+        label: Short Preview (optional)
+        type: text
+      - name: body
+        label: Post
+        type: rich-text
+        options:
+          media: blog_images
+          format: markdown
