@@ -4,7 +4,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Madison Ellis — Website Design Portfolio">
+
+  <meta
+    name="description"
+    content="Madison Ellis — Website Design Portfolio"
+  >
 
   <title>Madison Ellis | Website Design Portfolio</title>
 
@@ -37,9 +41,11 @@
 
     .wrap {
       max-width: 1080px;
-      margin: auto;
+      margin: 0 auto;
       padding: 0 24px;
     }
+
+    /* HEADER */
 
     header {
       border-bottom: 1px solid var(--line);
@@ -70,8 +76,14 @@
       font-size: 14px;
     }
 
+    .navlinks a:hover {
+      color: var(--accent);
+    }
+
+    /* INTRODUCTION */
+
     .hero {
-      padding: 100px 0 95px;
+      padding: 100px 0 65px;
       text-align: center;
     }
 
@@ -105,9 +117,46 @@
       font-size: 18px;
     }
 
+    /* SPOTIFY SECTION */
+
+    .music-section {
+      padding-top: 0;
+      padding-bottom: 75px;
+      text-align: center;
+    }
+
+    .music-section h2 {
+      font-size: 32px;
+      margin: 12px 0;
+    }
+
+    .music-section p {
+      color: var(--muted);
+      font-size: 15px;
+      margin: 0 auto 24px;
+      max-width: 500px;
+    }
+
+    .spotify-player {
+      max-width: 550px;
+      margin: 0 auto;
+    }
+
+    .spotify-player iframe {
+      display: block;
+      width: 100%;
+      height: 152px;
+      border: 0;
+      border-radius: 12px;
+    }
+
+    /* GENERAL SECTIONS */
+
     .section {
       padding: 55px 0 90px;
     }
+
+    /* PROJECTS */
 
     .projects {
       display: grid;
@@ -130,7 +179,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(145deg, #f0e5e9, #d5bdcc);
+      background: linear-gradient(
+        145deg,
+        #f0e5e9,
+        #d5bdcc
+      );
       font-family: Georgia, serif;
       font-size: 46px;
       letter-spacing: .03em;
@@ -138,7 +191,11 @@
     }
 
     .visual.cmad {
-      background: linear-gradient(145deg, #e7eef4, #cad9e6);
+      background: linear-gradient(
+        145deg,
+        #e7eef4,
+        #cad9e6
+      );
       color: #426887;
     }
 
@@ -187,6 +244,8 @@
       background: var(--accent);
     }
 
+    /* SKILLS */
+
     .skills-list {
       display: flex;
       flex-wrap: wrap;
@@ -203,6 +262,8 @@
       color: var(--ink);
     }
 
+    /* ABOUT */
+
     .about {
       background: #f2edf0;
       padding: 65px 0;
@@ -212,6 +273,8 @@
       max-width: 720px;
       color: #57515a;
     }
+
+    /* CONTACT */
 
     .contact {
       padding: 65px 0 90px;
@@ -226,6 +289,8 @@
       overflow-wrap: anywhere;
     }
 
+    /* FOOTER */
+
     footer {
       padding: 28px 0;
       color: #716a71;
@@ -237,7 +302,7 @@
 
     @media (max-width: 800px) {
       .hero {
-        padding: 75px 0 65px;
+        padding: 75px 0 55px;
       }
 
       .projects {
@@ -282,7 +347,7 @@
 
       .hero {
         padding-top: 58px;
-        padding-bottom: 55px;
+        padding-bottom: 38px;
       }
 
       .eyebrow {
@@ -305,6 +370,29 @@
         line-height: 1.7;
         max-width: 340px;
       }
+
+      /* MOBILE SPOTIFY */
+
+      .music-section {
+        padding-bottom: 45px;
+      }
+
+      .music-section h2 {
+        font-size: 26px;
+        margin: 10px 0;
+      }
+
+      .music-section p {
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 18px;
+      }
+
+      .spotify-player {
+        max-width: 100%;
+      }
+
+      /* MOBILE PROJECTS */
 
       .section {
         padding-top: 38px;
@@ -349,6 +437,8 @@
         padding: 11px 15px;
       }
 
+      /* MOBILE SKILLS */
+
       .skills-list {
         gap: 9px;
         margin-top: 18px;
@@ -359,6 +449,8 @@
         padding: 8px 12px;
       }
 
+      /* MOBILE ABOUT */
+
       .about {
         padding: 45px 0;
       }
@@ -368,6 +460,8 @@
         font-size: 14px;
         line-height: 1.75;
       }
+
+      /* MOBILE CONTACT */
 
       .contact {
         padding: 45px 20px 60px;
@@ -383,10 +477,14 @@
 
 <body>
 
+  <!-- HEADER -->
+
   <header>
     <div class="wrap">
       <nav>
-        <a class="brand" href="./">Madison Ellis</a>
+        <a class="brand" href="./">
+          Madison Ellis
+        </a>
 
         <div class="navlinks">
           <a href="#projects">Projects</a>
@@ -417,11 +515,43 @@
 
     </section>
 
+    <!-- SPOTIFY PLAYLIST -->
+
+    <section class="music-section wrap">
+
+      <div class="eyebrow">
+        A Little Background Music
+      </div>
+
+      <h2>Listen While You Browse ♡</h2>
+
+      <p>
+        Feel free to put on a playlist while exploring
+        my portfolio!
+      </p>
+
+      <div class="spotify-player">
+
+        <iframe
+          title="Madison's Spotify Playlist"
+          src="https://open.spotify.com/embed/playlist/4Z6i4pJHjUTbzzpEuvFSCn"
+          width="100%"
+          height="152"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy">
+        </iframe>
+
+      </div>
+
+    </section>
+
     <!-- PROJECTS -->
 
     <section id="projects" class="section wrap">
 
-      <div class="eyebrow">Selected Work</div>
+      <div class="eyebrow">
+        Selected Work
+      </div>
 
       <h2>Website Projects</h2>
 
@@ -453,6 +583,7 @@
             </a>
 
           </div>
+
         </article>
 
         <!-- CMAD -->
@@ -481,9 +612,11 @@
             </a>
 
           </div>
+
         </article>
 
       </div>
+
     </section>
 
     <!-- SKILLS -->
@@ -512,9 +645,12 @@
     <!-- ABOUT -->
 
     <section id="about" class="about">
+
       <div class="wrap">
 
-        <div class="eyebrow">About</div>
+        <div class="eyebrow">
+          About
+        </div>
 
         <h2>Experience &amp; Background</h2>
 
@@ -533,13 +669,16 @@
         </p>
 
       </div>
+
     </section>
 
     <!-- CONTACT -->
 
     <section id="contact" class="contact wrap">
 
-      <div class="eyebrow">Get in Touch</div>
+      <div class="eyebrow">
+        Get in Touch
+      </div>
 
       <h2>Contact</h2>
 
@@ -549,16 +688,18 @@
       </p>
 
       <p class="contact-detail">
-        <strong>Email:</strong> Mads.ellis04@gmail.com
+        <strong>Email:</strong> YOUR_EMAIL@example.com
       </p>
 
       <p class="contact-detail">
-        <strong>Phone:</strong> (559)515-1104
+        <strong>Phone:</strong> YOUR_PHONE_NUMBER
       </p>
 
     </section>
 
   </main>
+
+  <!-- FOOTER -->
 
   <footer>
     <div class="wrap">
@@ -568,7 +709,7 @@
   </footer>
 
   <script>
-    document.getElementById('year').textContent =
+    document.getElementById("year").textContent =
       new Date().getFullYear();
   </script>
 
