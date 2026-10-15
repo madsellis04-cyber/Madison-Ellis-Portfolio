@@ -1,0 +1,4 @@
+---
+layout: default
+---
+<main><section class="page-intro wrap"><div class="eyebrow">Thoughts &amp; Little Updates</div><h1>The Blog</h1><p class="lead">A little space for ideas, inspiration, and everything in between.</p></section><section class="wrap"><div class="post-grid">{% for post in site.posts %}<article class="post-card"><div class="post-date">{{ post.date | date: "%B %-d, %Y" }}</div><h2>{{ post.title | escape }}</h2>{% if post.description %}<p>{{ post.description | escape }}</p>{% else %}<p>{{ post.excerpt | strip_html | truncatewords: 28 }}</p>{% endif %}<a href="{{ post.url | relative_url }}">Read More ↗</a></article>{% endfor %}</div>{% if site.posts.size == 0 %}<p class="empty-message">A little something is coming soon. ♡</p>{% endif %}</section></main>

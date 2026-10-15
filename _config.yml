@@ -1,0 +1,7 @@
+title: Madison Ellis | Digital & Creative Portfolio
+url: "https://madsellis04-cyber.github.io"
+baseurl: "/Madison-Ellis-Portfolio"
+markdown: kramdown
+permalink: /blog/:year/:month/:day/:title/
+exclude:
+  - README-SETUP.md
