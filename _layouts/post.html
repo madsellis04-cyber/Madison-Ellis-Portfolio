@@ -1,6 +1,64 @@
+
 ---
 layout: default
 ---
+
+<style>
+  .post-heading {
+    margin-bottom: 38px;
+  }
+
+  .post-heading h1 {
+    margin-bottom: 0;
+  }
+
+  .post-heading.has-portrait {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .post-heading.has-portrait .post-title {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .post-heading.has-portrait .featured-photo {
+    flex: 0 0 38%;
+    max-width: 280px;
+  }
+
+  .featured-photo {
+    text-align: center;
+  }
+
+  .featured-photo img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    max-height: 380px;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 12px;
+  }
+
+  .post-heading.has-landscape .featured-photo {
+    margin-top: 30px;
+  }
+
+  @media (max-width: 600px) {
+    .post-heading.has-portrait {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 24px;
+    }
+
+    .post-heading.has-portrait .featured-photo {
+      flex: none;
+      max-width: 100%;
+    }
+  }
+</style>
 
 <main>
   <article class="article">
@@ -13,18 +71,24 @@ layout: default
       {{ page.date | date: "%B %-d, %Y" }}
     </p>
 
-    <h1>{{ page.title | escape }}</h1>
+    <div class="post-heading" id="post-heading">
 
-    {% if page.featured_image %}
-      <div class="featured-photo" style="text-align:center; margin:30px 0 38px;">
-        <img
-          src="{{ page.featured_image | escape }}"
-          alt="{{ page.title | escape }}"
-          loading="lazy"
-          style="display:block; width:auto; max-width:100%; max-height:380px; height:auto; margin:0 auto; border-radius:12px;"
-        >
+      <div class="post-title">
+        <h1>{{ page.title | escape }}</h1>
       </div>
-    {% endif %}
+
+      {% if page.featured_image %}
+        <div class="featured-photo">
+          <img
+            id="featured-image"
+            src="{{ page.featured_image | escape }}"
+            alt="{{ page.title | escape }}"
+            loading="eager"
+          >
+        </div>
+      {% endif %}
+
+    </div>
 
     <div class="article-body">
       {{ content }}
@@ -32,3 +96,35 @@ layout: default
 
   </article>
 </main>
+
+{% if page.featured_image %}
+<script>
+  (function () {
+    const image = document.getElementById("featured-image");
+    const heading = document.getElementById("post-heading");
+
+    if (!image || !heading) return;
+
+    function updatePhotoLayout() {
+      if (!image.naturalWidth || !image.naturalHeight) return;
+
+      heading.classList.remove(
+        "has-portrait",
+        "has-landscape"
+      );
+
+      if (image.naturalHeight > image.naturalWidth) {
+        heading.classList.add("has-portrait");
+      } else {
+        heading.classList.add("has-landscape");
+      }
+    }
+
+    if (image.complete) {
+      updatePhotoLayout();
+    }
+
+    image.addEventListener("load", updatePhotoLayout);
+  })();
+</script>
+{% endif %}
