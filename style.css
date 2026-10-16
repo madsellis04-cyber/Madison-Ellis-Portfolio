@@ -87,6 +87,8 @@ nav a {
   font-weight: bold;
 }
 
+/* Main page title */
+
 h1 {
   font-family: Georgia, serif;
   font-weight: 400;
@@ -95,13 +97,42 @@ h1 {
   margin: 20px 0;
 }
 
-/* Consistent main section headings */
+/*
+ * CONSISTENT HOMEPAGE TYPOGRAPHY
+ *
+ * All main section headings:
+ * 42px on computers
+ * 30px on phones
+ *
+ * Uppercase label to heading: 16px
+ * Heading to following content: 24px
+ */
 
 h2 {
   font-family: Georgia, serif;
   font-size: 42px;
   font-weight: 400;
   line-height: 1.2;
+}
+
+/* Only homepage headings share these margins */
+
+main > .music-section h2,
+main > .section h2,
+main > .about h2,
+main > .beyond-section h2,
+main > .contact h2 {
+  margin: 16px 0 24px;
+}
+
+/* Prevent following elements from adding extra top space */
+
+main > .section h2 + .projects,
+main > .section h2 + .skills-list,
+main > .about h2 + p,
+main > .beyond-section h2 + p,
+main > .contact h2 + p {
+  margin-top: 0;
 }
 
 .lead {
@@ -125,12 +156,7 @@ h2 {
   flex-shrink: 0;
 }
 
-/*
- * Keep heading text and its icon together.
- *
- * The text may wrap, but the icon stays
- * beside it rather than falling below.
- */
+/* Icon heading layout */
 
 .heading-with-icon {
   display: flex;
@@ -156,7 +182,6 @@ h2 {
 
 .music-section h2 {
   font-size: 42px;
-  margin: 12px 0 24px;
 }
 
 .spotify-player {
@@ -308,7 +333,6 @@ h3 {
 
 .beyond-card h2 {
   font-size: 42px;
-  margin: 14px 0 10px;
 }
 
 .beyond-card p {
@@ -540,13 +564,7 @@ footer {
     font-size: 13px;
   }
 
-  /*
-   * PHONE TYPOGRAPHY
-   *
-   * All main homepage headings are 30px.
-   * The smaller size gives long titles
-   * and their icons more room.
-   */
+  /* Consistent phone heading sizes */
 
   h2,
   .music-section h2,
@@ -558,13 +576,7 @@ footer {
     font-size: 26px;
   }
 
-  /*
-   * ICONS BESIDE HEADINGS
-   *
-   * No flex wrapping.
-   * The heading text can still wrap
-   * within its available space.
-   */
+  /* Icons beside their heading text */
 
   .heading-with-icon {
     flex-wrap: nowrap;
@@ -580,7 +592,8 @@ footer {
   /*
    * PHONE HOMEPAGE SPACING
    *
-   * Keep 45px between regular sections.
+   * Keep the section spacing
+   * from your approved version.
    */
 
   main > .hero,
@@ -603,22 +616,13 @@ footer {
     padding-bottom: 45px;
   }
 
-  /*
-   * Restore breathing room below
-   * the Skills & Tools tags.
-   *
-   * This prevents the final tag from
-   * touching the purple About section.
-   */
+  /* Breathing room after Skills & Tools */
 
   main > .section:has(.skills-list) {
     padding-bottom: 45px;
   }
 
-  /*
-   * Keep comfortable spacing below
-   * the About section's final paragraph.
-   */
+  /* Breathing room after About */
 
   main > .about {
     padding-bottom: 45px;
@@ -698,7 +702,7 @@ footer {
   }
 }
 
-/* Balanced desktop homepage spacing */
+/* Balanced desktop homepage section spacing */
 
 @media (min-width: 601px) {
 
