@@ -21,6 +21,7 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
   line-height: 1.6;
   overflow-wrap: break-word;
 }
@@ -86,6 +87,8 @@ nav a {
   font-weight: bold;
 }
 
+/* Main page title */
+
 h1 {
   font-family: Georgia, serif;
   font-weight: 400;
@@ -94,12 +97,21 @@ h1 {
   margin: 20px 0;
 }
 
+/*
+ * CONSISTENT MAIN SECTION HEADINGS
+ *
+ * All homepage h2 headings use the
+ * same size on computers.
+ */
+
 h2 {
   font-family: Georgia, serif;
-  font-size: clamp(32px, 4vw, 48px);
+  font-size: 42px;
   font-weight: 400;
   line-height: 1.2;
 }
+
+/* Introductory text */
 
 .lead {
   max-width: 650px;
@@ -143,9 +155,20 @@ h2 {
   text-align: center;
 }
 
+/*
+ * Spotify heading uses the same
+ * font size as every other h2.
+ */
+
 .music-section h2 {
-  font-size: 32px;
+  font-size: inherit;
   margin: 12px 0 24px;
+}
+
+/* Restore standard heading size */
+
+.music-section h2 {
+  font-size: 42px;
 }
 
 .spotify-player {
@@ -211,12 +234,14 @@ h2 {
 }
 
 .tag {
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: .12em;
   text-transform: uppercase;
   color: var(--accent);
   font-weight: 700;
 }
+
+/* Consistent project card titles */
 
 h3 {
   font-family: Georgia, serif;
@@ -295,14 +320,19 @@ h3 {
   text-align: center;
 }
 
+/*
+ * Same heading size as Skills,
+ * Experience, and Spotify.
+ */
+
 .beyond-card h2 {
-  font-size: 34px;
+  font-size: 42px;
   margin: 14px 0 10px;
 }
 
 .beyond-card p {
   color: var(--muted);
-  font-size: 15px;
+  font-size: 16px;
   margin: 0 auto 20px;
 }
 
@@ -530,10 +560,26 @@ footer {
   }
 
   /*
+   * CONSISTENT PHONE TYPOGRAPHY
+   *
+   * All main section headings: 32px.
+   * All project card headings: 26px.
+   */
+
+  h2,
+  .music-section h2,
+  .beyond-card h2 {
+    font-size: 32px;
+  }
+
+  .content h3 {
+    font-size: 26px;
+  }
+
+  /*
    * CONSISTENT PHONE SPACING
    *
-   * Keep the phone layout exactly as
-   * it was when you liked the spacing.
+   * Preserve the phone layout you liked.
    */
 
   main > .hero,
@@ -577,19 +623,9 @@ footer {
     padding: 24px;
   }
 
-  .content h3 {
-    font-size: 26px;
-  }
-
   .action {
     max-width: 100%;
     text-align: center;
-  }
-
-  /* Music */
-
-  .music-section h2 {
-    font-size: 28px;
   }
 
   /* Instagram card */
@@ -601,10 +637,6 @@ footer {
 
   .beyond-card {
     padding: 32px 20px;
-  }
-
-  .beyond-card h2 {
-    font-size: 30px;
   }
 
   /* Blog and photography */
@@ -647,9 +679,8 @@ footer {
 /*
  * BALANCED DESKTOP HOMEPAGE SPACING
  *
- * Restore padding inside the purple
- * About section while keeping the
- * other sections evenly separated.
+ * Keep comfortable spacing around
+ * the colored About section.
  */
 
 @media (min-width: 601px) {
@@ -666,7 +697,7 @@ footer {
     margin-bottom: 0;
   }
 
-  /* More space below the navigation */
+  /* More space below navigation */
 
   main > .hero {
     padding-top: 80px;
