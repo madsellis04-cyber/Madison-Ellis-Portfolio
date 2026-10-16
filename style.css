@@ -495,7 +495,7 @@ footer {
   }
 }
 
-/* Phone-specific spacing improvements */
+/* Phone-specific layout and balanced spacing */
 
 @media (max-width: 600px) {
   .wrap {
@@ -524,15 +524,76 @@ footer {
     font-size: 13px;
   }
 
+  /*
+   * HOMEPAGE SPACING
+   *
+   * Use 45px at each section boundary.
+   * Adjacent sections split the space so
+   * the gaps do not accidentally double.
+   */
+
   .hero {
     padding-top: 55px;
-    padding-bottom: 40px;
+    padding-bottom: 45px;
+  }
+
+  .music-section {
+    padding-top: 0;
+    padding-bottom: 45px;
   }
 
   .section {
     padding-top: 45px;
     padding-bottom: 45px;
   }
+
+  .about {
+    padding-top: 45px;
+    padding-bottom: 45px;
+  }
+
+  .beyond-section {
+    padding-top: 45px;
+    padding-bottom: 45px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .contact {
+    padding-top: 0;
+    padding-bottom: 45px;
+  }
+
+  /*
+   * Adjust neighboring homepage sections
+   * so visible gaps are more consistent.
+   */
+
+  .hero + .music-section {
+    padding-top: 0;
+  }
+
+  .music-section + .section {
+    padding-top: 0;
+  }
+
+  .section + .section {
+    padding-top: 0;
+  }
+
+  .section + .about {
+    padding-top: 45px;
+  }
+
+  .about + .beyond-section {
+    padding-top: 45px;
+  }
+
+  .beyond-section + .contact {
+    padding-top: 0;
+  }
+
+  /* Website project cards */
 
   .projects {
     grid-template-columns: minmax(0, 1fr);
@@ -562,22 +623,13 @@ footer {
     text-align: center;
   }
 
-  .music-section {
-    padding-bottom: 45px;
-  }
+  /* Spotify */
 
   .music-section h2 {
     font-size: 28px;
   }
 
-  .about {
-    padding-top: 45px;
-    padding-bottom: 45px;
-  }
-
-  .beyond-section {
-    padding: 45px 20px;
-  }
+  /* Instagram card */
 
   .beyond-card {
     padding: 32px 20px;
@@ -587,10 +639,7 @@ footer {
     font-size: 30px;
   }
 
-  .contact {
-    padding-top: 0;
-    padding-bottom: 45px;
-  }
+  /* Blog and photography pages */
 
   .page-intro {
     padding-top: 55px;
