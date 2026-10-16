@@ -55,7 +55,7 @@ layout: default
     margin-top: 28px;
   }
 
-  /* Phone layout */
+  /* iPhone and smaller screens */
   @media (max-width: 600px) {
     .post-heading {
       margin: 18px 0 26px;
@@ -63,7 +63,7 @@ layout: default
 
     .post-heading.has-portrait {
       flex-direction: row;
-      align-items: flex-start;
+      align-items: center;
       gap: 14px;
     }
 
@@ -79,7 +79,7 @@ layout: default
     }
 
     .post-heading.has-portrait h1 {
-      font-size: clamp(1.25rem, 5vw, 1.75rem);
+      font-size: clamp(1.35rem, 5.5vw, 1.9rem);
       line-height: 1.12;
       overflow-wrap: break-word;
     }
@@ -91,6 +91,8 @@ layout: default
     }
 
     .post-heading.has-portrait .featured-photo img {
+      width: 100%;
+      height: auto;
       max-height: none;
       border-radius: 9px;
     }
@@ -109,7 +111,7 @@ layout: default
     }
   }
 
-  /* Very narrow phones */
+  /* Extra-small phones */
   @media (max-width: 340px) {
     .post-heading.has-portrait {
       flex-direction: column;
@@ -122,8 +124,7 @@ layout: default
     }
 
     .post-heading.has-portrait .featured-photo img {
-      width: auto !important;
-      height: auto !important;
+      width: auto;
       max-height: 300px;
     }
 
@@ -203,44 +204,26 @@ layout: default
 
       const availableWidth = heading.clientWidth;
 
+      /*
+       * Mobile: use the larger photo size
+       * from the version you preferred.
+       */
       if (isMobile) {
-        /*
-         * Start with the largest permitted photo width.
-         * This leaves enough room for the title.
-         */
-        const maxPhotoWidth = Math.min(
+        const photoWidth = Math.min(
           availableWidth * 0.38,
           155
         );
 
-        photo.style.width = maxPhotoWidth + "px";
-
-        /*
-         * Measure the title and date after the
-         * text column has been sized.
-         */
-        const titleHeight =
-          title.getBoundingClientRect().height;
-
-        /*
-         * Match the photo height to the title/date,
-         * without exceeding the available width.
-         */
-        const targetWidth = titleHeight * ratio;
-        const finalWidth = Math.min(
-          targetWidth,
-          maxPhotoWidth
-        );
-
-        photo.style.width = finalWidth + "px";
-        image.style.width = finalWidth + "px";
+        photo.style.width = photoWidth + "px";
+        image.style.width = photoWidth + "px";
         image.style.height = "auto";
 
         return;
       }
 
       /*
-       * Desktop layout: unchanged.
+       * Desktop: preserve your existing
+       * automatic title/photo height matching.
        */
       const maxPhotoWidth = Math.min(
         280,
