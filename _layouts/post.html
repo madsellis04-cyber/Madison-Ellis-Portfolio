@@ -55,7 +55,7 @@ layout: default
     margin-top: 28px;
   }
 
-  /* iPhone and smaller screens */
+  /* Phone layout */
   @media (max-width: 600px) {
     .post-heading {
       margin: 18px 0 26px;
@@ -63,7 +63,7 @@ layout: default
 
     .post-heading.has-portrait {
       flex-direction: row;
-      align-items: center;
+      align-items: flex-start;
       gap: 14px;
     }
 
@@ -91,8 +91,6 @@ layout: default
     }
 
     .post-heading.has-portrait .featured-photo img {
-      width: 100%;
-      height: auto;
       max-height: none;
       border-radius: 9px;
     }
@@ -111,7 +109,7 @@ layout: default
     }
   }
 
-  /* Extra-small phones */
+  /* Very narrow phones */
   @media (max-width: 340px) {
     .post-heading.has-portrait {
       flex-direction: column;
@@ -124,7 +122,8 @@ layout: default
     }
 
     .post-heading.has-portrait .featured-photo img {
-      width: auto;
+      width: auto !important;
+      height: auto !important;
       max-height: 300px;
     }
 
@@ -184,7 +183,9 @@ layout: default
     function updatePhotoLayout() {
       if (!image.naturalWidth || !image.naturalHeight) return;
 
-      const isPortrait = image.naturalHeight > image.naturalWidth;
+      const isPortrait =
+        image.naturalHeight > image.naturalWidth;
+
       const isMobile = window.innerWidth <= 600;
       const isExtraSmall = window.innerWidth <= 340;
 
@@ -195,30 +196,52 @@ layout: default
       image.style.height = "";
       photo.style.width = "";
 
-      if (!isPortrait) return;
+      if (!isPortrait || isExtraSmall) return;
 
-      if (isExtraSmall) return;
+      const ratio =
+        image.naturalWidth / image.naturalHeight;
 
-      const ratio = image.naturalWidth / image.naturalHeight;
+      const availableWidth = heading.clientWidth;
 
       if (isMobile) {
-        const availableWidth = heading.clientWidth;
-        const photoWidth = Math.min(
+        /*
+         * Start with the largest permitted photo width.
+         * This leaves enough room for the title.
+         */
+        const maxPhotoWidth = Math.min(
           availableWidth * 0.38,
           155
         );
 
-        photo.style.width = photoWidth + "px";
-        image.style.width = photoWidth + "px";
+        photo.style.width = maxPhotoWidth + "px";
+
+        /*
+         * Measure the title and date after the
+         * text column has been sized.
+         */
+        const titleHeight =
+          title.getBoundingClientRect().height;
+
+        /*
+         * Match the photo height to the title/date,
+         * without exceeding the available width.
+         */
+        const targetWidth = titleHeight * ratio;
+        const finalWidth = Math.min(
+          targetWidth,
+          maxPhotoWidth
+        );
+
+        photo.style.width = finalWidth + "px";
+        image.style.width = finalWidth + "px";
         image.style.height = "auto";
+
         return;
       }
 
       /*
-       * Desktop: keep the existing automatic
-       * title-and-photo height matching.
+       * Desktop layout: unchanged.
        */
-      const availableWidth = heading.clientWidth;
       const maxPhotoWidth = Math.min(
         280,
         availableWidth * 0.38
@@ -226,11 +249,21 @@ layout: default
 
       photo.style.width = maxPhotoWidth + "px";
 
-      const titleHeight = title.getBoundingClientRect().height;
-      const targetHeight = Math.min(titleHeight, 460);
+      const titleHeight =
+        title.getBoundingClientRect().height;
+
+      const targetHeight = Math.min(
+        titleHeight,
+        460
+      );
+
       const targetWidth = targetHeight * ratio;
 
-      const finalWidth = Math.min(targetWidth, maxPhotoWidth);
+      const finalWidth = Math.min(
+        targetWidth,
+        maxPhotoWidth
+      );
+
       const finalHeight = finalWidth / ratio;
 
       photo.style.width = finalWidth + "px";
