@@ -1,4 +1,21 @@
 ---
 layout: default
 ---
-<main><article class="article"><a class="back-link" href="{{ '/blog.html' | relative_url }}">← Back to Blog</a><p class="post-date">{{ page.date | date: "%B %-d, %Y" }}</p><h1>{{ page.title | escape }}</h1><div class="article-body">{{ content }}</div></article></main>
+
+<main>
+  <article class="article">
+    <a class="back-link" href="{{ '/blog' | relative_url }}">
+      ← Back to Blog
+    </a>
+
+    <p class="post-date">
+      {{ page.date | date: "%B %-d, %Y" }}
+    </p>
+
+    <h1>{{ page.title | escape }}</h1>
+
+    <div class="article-body">
+      {{ content }}
+    </div>
+  </article>
+</main>
