@@ -28,8 +28,7 @@ layout: default
   }
 
   .post-heading.has-portrait .featured-photo {
-    flex: 0 0 34%;
-    max-width: 240px;
+    flex: 0 0 auto;
     order: -1;
   }
 
@@ -47,7 +46,7 @@ layout: default
     width: auto;
     height: auto;
     max-width: 100%;
-    max-height: 340px;
+    max-height: 380px;
     margin: 0 auto;
     border-radius: 12px;
   }
@@ -68,6 +67,12 @@ layout: default
       flex: none;
       max-width: 100%;
     }
+
+    .post-heading.has-portrait .featured-photo img {
+      height: auto !important;
+      width: auto !important;
+      max-height: 380px;
+    }
   }
 </style>
 
@@ -80,7 +85,7 @@ layout: default
 
     <div class="post-heading" id="post-heading">
 
-      <div class="post-title">
+      <div class="post-title" id="post-title">
         <h1>{{ page.title | escape }}</h1>
 
         <p class="post-date">
@@ -89,7 +94,7 @@ layout: default
       </div>
 
       {% if page.featured_image %}
-        <div class="featured-photo">
+        <div class="featured-photo" id="featured-photo">
           <img
             id="featured-image"
             src="{{ page.featured_image | escape }}"
@@ -113,19 +118,51 @@ layout: default
   (function () {
     const image = document.getElementById("featured-image");
     const heading = document.getElementById("post-heading");
+    const title = document.getElementById("post-title");
+    const photo = document.getElementById("featured-photo");
 
-    if (!image || !heading) return;
+    if (!image || !heading || !title || !photo) return;
 
     function updatePhotoLayout() {
       if (!image.naturalWidth || !image.naturalHeight) return;
 
-      heading.classList.remove("has-portrait", "has-landscape");
+      const isPortrait = image.naturalHeight > image.naturalWidth;
+      const isMobile = window.innerWidth <= 600;
 
-      if (image.naturalHeight > image.naturalWidth) {
-        heading.classList.add("has-portrait");
-      } else {
-        heading.classList.add("has-landscape");
-      }
+      heading.classList.toggle("has-portrait", isPortrait);
+      heading.classList.toggle("has-landscape", !isPortrait);
+
+      image.style.width = "";
+      image.style.height = "";
+      photo.style.width = "";
+
+      if (!isPortrait || isMobile) return;
+
+      const ratio = image.naturalWidth / image.naturalHeight;
+
+      /*
+       * Begin with a modest photo width so the title
+       * has plenty of room to wrap naturally.
+       */
+      const availableWidth = heading.clientWidth;
+      const maxPhotoWidth = Math.min(280, availableWidth * 0.38);
+
+      photo.style.width = maxPhotoWidth + "px";
+
+      /*
+       * Measure the title at its final column width.
+       * Then size the photo proportionally to its height.
+       */
+      const titleHeight = title.getBoundingClientRect().height;
+      const targetHeight = Math.min(titleHeight, 460);
+      const targetWidth = targetHeight * ratio;
+
+      const finalWidth = Math.min(targetWidth, maxPhotoWidth);
+      const finalHeight = finalWidth / ratio;
+
+      photo.style.width = finalWidth + "px";
+      image.style.width = finalWidth + "px";
+      image.style.height = finalHeight + "px";
     }
 
     if (image.complete) {
@@ -133,6 +170,11 @@ layout: default
     }
 
     image.addEventListener("load", updatePhotoLayout);
+    window.addEventListener("resize", updatePhotoLayout);
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(updatePhotoLayout);
+    }
   })();
 </script>
 {% endif %}
