@@ -4,6 +4,7 @@ layout: default
 
 <main>
   <article class="article">
+
     <a class="back-link" href="{{ '/blog' | relative_url }}">
       ← Back to Blog
     </a>
@@ -14,8 +15,20 @@ layout: default
 
     <h1>{{ page.title | escape }}</h1>
 
+    {% if page.featured_image %}
+      <div class="featured-photo">
+        <img
+          src="{{ page.featured_image | escape }}"
+          alt="{{ page.title | escape }}"
+          loading="lazy"
+          style="display:block; width:100%; height:auto; border-radius:12px; margin:28px 0 36px;"
+        >
+      </div>
+    {% endif %}
+
     <div class="article-body">
       {{ content }}
     </div>
+
   </article>
 </main>
