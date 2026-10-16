@@ -4,28 +4,36 @@ layout: default
 ---
 
 <style>
+  .article {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .post-heading {
-    margin-bottom: 38px;
+    margin: 22px 0 36px;
   }
 
   .post-heading h1 {
-    margin-bottom: 0;
+    margin: 0;
   }
 
   .post-heading.has-portrait {
     display: flex;
+    flex-direction: row;
     align-items: center;
     gap: 30px;
+  }
+
+  .post-heading.has-portrait .featured-photo {
+    flex: 0 0 34%;
+    max-width: 240px;
+    order: -1;
   }
 
   .post-heading.has-portrait .post-title {
     flex: 1;
     min-width: 0;
-  }
-
-  .post-heading.has-portrait .featured-photo {
-    flex: 0 0 38%;
-    max-width: 280px;
   }
 
   .featured-photo {
@@ -35,15 +43,15 @@ layout: default
   .featured-photo img {
     display: block;
     width: auto;
-    max-width: 100%;
-    max-height: 380px;
     height: auto;
+    max-width: 100%;
+    max-height: 340px;
     margin: 0 auto;
     border-radius: 12px;
   }
 
   .post-heading.has-landscape .featured-photo {
-    margin-top: 30px;
+    margin-top: 28px;
   }
 
   @media (max-width: 600px) {
@@ -54,6 +62,7 @@ layout: default
     }
 
     .post-heading.has-portrait .featured-photo {
+      order: 0;
       flex: none;
       max-width: 100%;
     }
@@ -108,10 +117,7 @@ layout: default
     function updatePhotoLayout() {
       if (!image.naturalWidth || !image.naturalHeight) return;
 
-      heading.classList.remove(
-        "has-portrait",
-        "has-landscape"
-      );
+      heading.classList.remove("has-portrait", "has-landscape");
 
       if (image.naturalHeight > image.naturalWidth) {
         heading.classList.add("has-portrait");
@@ -120,9 +126,7 @@ layout: default
       }
     }
 
-    if (image.complete) {
-      updatePhotoLayout();
-    }
+    if (image.complete) updatePhotoLayout();
 
     image.addEventListener("load", updatePhotoLayout);
   })();
