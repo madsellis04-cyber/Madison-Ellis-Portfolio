@@ -477,7 +477,7 @@ footer {
   opacity: .9;
 }
 
-/* Tablet and mobile layout */
+/* Tablet layout */
 
 @media (max-width: 800px) {
   .hero {
@@ -495,7 +495,7 @@ footer {
   }
 }
 
-/* Phone-specific layout */
+/* Phone layout */
 
 @media (max-width: 600px) {
 
@@ -530,14 +530,11 @@ footer {
   }
 
   /*
-   * CONSISTENT HOMEPAGE SPACING
+   * CONSISTENT PHONE SPACING
    *
-   * Every section starts with 45px of
-   * space above its content.
-   *
-   * Each section has no bottom padding,
-   * so neighboring sections don't
-   * accidentally double the gap.
+   * Each homepage section gets its
+   * spacing above, not below.
+   * This prevents doubled gaps.
    */
 
   main > .hero,
@@ -552,19 +549,9 @@ footer {
     margin-bottom: 0;
   }
 
-  /*
-   * Keep the welcome section slightly
-   * more spacious at the top.
-   */
-
   main > .hero {
     padding-top: 55px;
   }
-
-  /*
-   * Give the final section breathing
-   * room before the footer.
-   */
 
   main > .contact {
     padding-bottom: 45px;
@@ -606,7 +593,7 @@ footer {
     font-size: 28px;
   }
 
-  /* Beyond the Portfolio card */
+  /* Instagram card */
 
   .beyond-section {
     padding-left: 20px;
@@ -655,5 +642,40 @@ footer {
   footer .wrap {
     padding-left: 20px;
     padding-right: 20px;
+  }
+}
+
+/*
+ * CONSISTENT DESKTOP SPACING
+ *
+ * Applies only above phone width.
+ * Uses 55px between homepage sections
+ * without stacking neighboring padding.
+ */
+
+@media (min-width: 601px) {
+
+  main > .hero,
+  main > .music-section,
+  main > .section,
+  main > .about,
+  main > .beyond-section,
+  main > .contact {
+    padding-top: 55px;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  /* More space beneath the navigation */
+
+  main > .hero {
+    padding-top: 80px;
+  }
+
+  /* Space before the footer */
+
+  main > .contact {
+    padding-bottom: 55px;
   }
 }
