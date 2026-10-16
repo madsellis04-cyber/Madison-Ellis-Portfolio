@@ -495,9 +495,12 @@ footer {
   }
 }
 
-/* Phone-specific layout and balanced spacing */
+/* Phone-specific layout */
 
 @media (max-width: 600px) {
+
+  /* Shared horizontal spacing */
+
   .wrap {
     width: 100%;
     max-width: 100%;
@@ -509,6 +512,8 @@ footer {
     padding-left: 20px;
     padding-right: 20px;
   }
+
+  /* Navigation */
 
   nav {
     padding-top: 16px;
@@ -525,75 +530,47 @@ footer {
   }
 
   /*
-   * HOMEPAGE SPACING
+   * CONSISTENT HOMEPAGE SPACING
    *
-   * Use 45px at each section boundary.
-   * Adjacent sections split the space so
-   * the gaps do not accidentally double.
+   * Every section starts with 45px of
+   * space above its content.
+   *
+   * Each section has no bottom padding,
+   * so neighboring sections don't
+   * accidentally double the gap.
    */
 
-  .hero {
-    padding-top: 55px;
-    padding-bottom: 45px;
-  }
-
-  .music-section {
-    padding-top: 0;
-    padding-bottom: 45px;
-  }
-
-  .section {
+  main > .hero,
+  main > .music-section,
+  main > .section,
+  main > .about,
+  main > .beyond-section,
+  main > .contact {
     padding-top: 45px;
-    padding-bottom: 45px;
-  }
-
-  .about {
-    padding-top: 45px;
-    padding-bottom: 45px;
-  }
-
-  .beyond-section {
-    padding-top: 45px;
-    padding-bottom: 45px;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  .contact {
-    padding-top: 0;
-    padding-bottom: 45px;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 
   /*
-   * Adjust neighboring homepage sections
-   * so visible gaps are more consistent.
+   * Keep the welcome section slightly
+   * more spacious at the top.
    */
 
-  .hero + .music-section {
-    padding-top: 0;
+  main > .hero {
+    padding-top: 55px;
   }
 
-  .music-section + .section {
-    padding-top: 0;
+  /*
+   * Give the final section breathing
+   * room before the footer.
+   */
+
+  main > .contact {
+    padding-bottom: 45px;
   }
 
-  .section + .section {
-    padding-top: 0;
-  }
-
-  .section + .about {
-    padding-top: 45px;
-  }
-
-  .about + .beyond-section {
-    padding-top: 45px;
-  }
-
-  .beyond-section + .contact {
-    padding-top: 0;
-  }
-
-  /* Website project cards */
+  /* Project cards */
 
   .projects {
     grid-template-columns: minmax(0, 1fr);
@@ -623,13 +600,18 @@ footer {
     text-align: center;
   }
 
-  /* Spotify */
+  /* Music */
 
   .music-section h2 {
     font-size: 28px;
   }
 
-  /* Instagram card */
+  /* Beyond the Portfolio card */
+
+  .beyond-section {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 
   .beyond-card {
     padding: 32px 20px;
@@ -639,7 +621,7 @@ footer {
     font-size: 30px;
   }
 
-  /* Blog and photography pages */
+  /* Blog and photography */
 
   .page-intro {
     padding-top: 55px;
@@ -667,6 +649,8 @@ footer {
     padding-top: 30px;
     padding-bottom: 70px;
   }
+
+  /* Footer */
 
   footer .wrap {
     padding-left: 20px;
