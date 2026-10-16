@@ -26,9 +26,7 @@ layout: default
             </p>
           {% endif %}
 
-          <a href="{{ post.url | relative_url }}">
-            Read More ↗
-          </a>
+          <a href="{{ post.url | relative_url }}">Read More <span aria-hidden="true">&#8599;&#xfe0e;</span></a>
         </article>
       {% endfor %}
     </div>
