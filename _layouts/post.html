@@ -55,23 +55,81 @@ layout: default
     margin-top: 28px;
   }
 
+  /* iPhone and smaller screens */
   @media (max-width: 600px) {
+    .post-heading {
+      margin: 18px 0 26px;
+    }
+
+    .post-heading.has-portrait {
+      flex-direction: row;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .post-heading.has-portrait .featured-photo {
+      order: -1;
+      flex: 0 0 auto;
+      max-width: 38%;
+    }
+
+    .post-heading.has-portrait .post-title {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .post-heading.has-portrait h1 {
+      font-size: clamp(1.25rem, 5vw, 1.75rem);
+      line-height: 1.12;
+      overflow-wrap: break-word;
+    }
+
+    .post-heading .post-date {
+      margin-top: 12px;
+      font-size: 0.65rem;
+      line-height: 1.5;
+    }
+
+    .post-heading.has-portrait .featured-photo img {
+      width: 100%;
+      height: auto;
+      max-height: none;
+      border-radius: 9px;
+    }
+
+    .post-heading.has-landscape h1 {
+      font-size: clamp(2rem, 8vw, 3rem);
+      line-height: 1.1;
+    }
+
+    .post-heading.has-landscape .featured-photo {
+      margin-top: 22px;
+    }
+
+    .post-heading.has-landscape .featured-photo img {
+      max-height: 340px;
+    }
+  }
+
+  /* Extra-small phones */
+  @media (max-width: 340px) {
     .post-heading.has-portrait {
       flex-direction: column;
       align-items: stretch;
-      gap: 24px;
     }
 
     .post-heading.has-portrait .featured-photo {
       order: 0;
-      flex: none;
       max-width: 100%;
     }
 
     .post-heading.has-portrait .featured-photo img {
-      height: auto !important;
-      width: auto !important;
-      max-height: 380px;
+      width: auto;
+      max-height: 300px;
+    }
+
+    .post-heading.has-portrait h1 {
+      font-size: 2rem;
     }
   }
 </style>
@@ -128,6 +186,7 @@ layout: default
 
       const isPortrait = image.naturalHeight > image.naturalWidth;
       const isMobile = window.innerWidth <= 600;
+      const isExtraSmall = window.innerWidth <= 340;
 
       heading.classList.toggle("has-portrait", isPortrait);
       heading.classList.toggle("has-landscape", !isPortrait);
@@ -136,23 +195,37 @@ layout: default
       image.style.height = "";
       photo.style.width = "";
 
-      if (!isPortrait || isMobile) return;
+      if (!isPortrait) return;
+
+      if (isExtraSmall) return;
 
       const ratio = image.naturalWidth / image.naturalHeight;
 
+      if (isMobile) {
+        const availableWidth = heading.clientWidth;
+        const photoWidth = Math.min(
+          availableWidth * 0.38,
+          155
+        );
+
+        photo.style.width = photoWidth + "px";
+        image.style.width = photoWidth + "px";
+        image.style.height = "auto";
+        return;
+      }
+
       /*
-       * Begin with a modest photo width so the title
-       * has plenty of room to wrap naturally.
+       * Desktop: keep the existing automatic
+       * title-and-photo height matching.
        */
       const availableWidth = heading.clientWidth;
-      const maxPhotoWidth = Math.min(280, availableWidth * 0.38);
+      const maxPhotoWidth = Math.min(
+        280,
+        availableWidth * 0.38
+      );
 
       photo.style.width = maxPhotoWidth + "px";
 
-      /*
-       * Measure the title at its final column width.
-       * Then size the photo proportionally to its height.
-       */
       const titleHeight = title.getBoundingClientRect().height;
       const targetHeight = Math.min(titleHeight, 460);
       const targetWidth = targetHeight * ratio;
