@@ -5,6 +5,7 @@ layout: post
 description: Watering a vineyard may seem simple, but knowing where that water
   actually goes is another story. Here’s what I learned from monitoring soil
   moisture in a table grape vineyard.
+featured_image: /Madison-Ellis-Portfolio/assets/blog-images/img0253.jpeg
 ---
 *What I learned from monitoring soil moisture in a California table grape vineyard.*
 
