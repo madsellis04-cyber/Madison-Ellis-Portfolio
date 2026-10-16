@@ -532,9 +532,8 @@ footer {
   /*
    * CONSISTENT PHONE SPACING
    *
-   * Each homepage section gets its
-   * spacing above, not below.
-   * This prevents doubled gaps.
+   * Keep the phone layout exactly as
+   * it was when you liked the spacing.
    */
 
   main > .hero,
@@ -646,11 +645,11 @@ footer {
 }
 
 /*
- * CONSISTENT DESKTOP SPACING
+ * BALANCED DESKTOP HOMEPAGE SPACING
  *
- * Applies only above phone width.
- * Uses 55px between homepage sections
- * without stacking neighboring padding.
+ * Restore padding inside the purple
+ * About section while keeping the
+ * other sections evenly separated.
  */
 
 @media (min-width: 601px) {
@@ -662,20 +661,45 @@ footer {
   main > .beyond-section,
   main > .contact {
     padding-top: 55px;
-    padding-bottom: 0;
+    padding-bottom: 55px;
     margin-top: 0;
     margin-bottom: 0;
   }
 
-  /* More space beneath the navigation */
+  /* More space below the navigation */
 
   main > .hero {
     padding-top: 80px;
+    padding-bottom: 28px;
   }
 
-  /* Space before the footer */
+  /* Split spacing between regular sections */
 
-  main > .contact {
+  main > .music-section,
+  main > .section {
+    padding-top: 27px;
+    padding-bottom: 28px;
+  }
+
+  /* Comfortable spacing inside About */
+
+  main > .about {
+    padding-top: 55px;
     padding-bottom: 55px;
   }
+
+  /* Space above and below Instagram */
+
+  main > .beyond-section {
+    padding-top: 55px;
+    padding-bottom: 28px;
+  }
+
+  /* Balanced Contact section */
+
+  main > .contact {
+    padding-top: 27px;
+    padding-bottom: 55px;
+  }
+
 }
